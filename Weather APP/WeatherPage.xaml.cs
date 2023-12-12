@@ -46,7 +46,7 @@ public partial class WeatherPage : ContentPage
 
 	private async void ImageButton_Clicked(object sender, EventArgs e)
 	{
-		var response = await DisplayPromptAsync(title: "", message: "", placeholder: "Search weather by city", accept: "", cancel: "Cencel");
+		var response = await DisplayPromptAsync(title: "", message: "", placeholder: "Search weather by city", accept: "Search", cancel: "Cencel");
 		if(response != null)
 		{
 			await GetWeatherDataByCity(response);
@@ -76,7 +76,7 @@ public partial class WeatherPage : ContentPage
 
         LblCity.Text = result.city.name;
         LblWeatherDescription.Text = result.list[0].weather[0].description;
-        LblTemperature.Text = result.list[0].main.temperature + "¡CC";
+        LblTemperature.Text = result.list[0].main.temperature + "Â¡CC";
         LblHumidity.Text = result.list[0].main.humidity + "%";
         LblWind.Text = result.list[0].wind.speed + "km/h";
         ImgWeatherIcon.Source = result.list[0].weather[0].customIcon;
